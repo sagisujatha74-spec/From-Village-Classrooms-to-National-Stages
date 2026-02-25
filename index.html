@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Village to National Stages: Smt. Sagi Sujatha</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Configuration & Styles -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'earth-clay': '#A0522D',
+                        'earth-light': '#E6D2C9',
+                        'science-blue': '#2C3E50',
+                        'science-light': '#E8F1F5',
+                        'award-gold': '#D4AF37',
+                        'neutral-bg': '#FDFBF7',
+                        'text-primary': '#333333',
+                        'text-secondary': '#666666'
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* CRITICAL: Chart Container Styling Rules */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 500px;
+        }
+
+        /* Responsive adjustments for charts */
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scroll from side elements */
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Interactive Element Styles */
+        .method-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .method-card:hover, .method-card.active {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #A0522D;
+        }
+        
+        /* Timeline Nodes */
+        .timeline-node {
+            transition: all 0.3s ease;
+        }
+        .timeline-node.active {
+            background-color: #D4AF37; /* award-gold */
+            transform: scale(1.3);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+        .timeline-text.active {
+            color: #A0522D;
+            font-weight: 700;
+        }
+
+        /* Card Transitions */
+        .fade-content {
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+        .fade-out {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        /* Shift Comparison Cards */
+        .shift-card {
+            transition: all 0.3s ease;
+        }
+        .shift-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0,0,0,0.1);
+        }
+        
+        /* Custom Scrollbar for text areas */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #ccc; 
+            border-radius: 3px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
+            background: #A0522D; 
+        }
+
+        /* Floating Animations for Side Panels */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes float-reverse {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(15px) rotate(-3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .floating-slow { animation: float 6s ease-in-out infinite; }
+        .floating-medium { animation: float-reverse 4.5s ease-in-out infinite; }
+        .floating-fast { animation: float 3s ease-in-out infinite; }
+    </style>
+
+    <!-- Chosen Palette: Warm Neutrals (Earth to Science) -->
+    <!-- Application Structure Plan: 
+         1. Hero Section: Personal intro (First-person perspective) and the core mission.
+         2. The Challenge vs. Vision: Interactive comparison.
+         3. The Methodology Pipeline: Interactive flow (6th to 10th grade).
+         4. The Paradigm Shift: A 3-decade chronological breakdown showing evolution of resources, pedagogy, and student horizons.
+         5. Longitudinal Impact: Interactive Journey Path highlighting specific wins.
+         6. Holistic Development: Section on Scouts & Guides, values, and breaking superstitions.
+         7. Student Gallery: 72-image masonry gallery to keep original image ratios with larger sizes.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-neutral-bg text-text-primary font-sans antialiased selection:bg-earth-clay selection:text-white relative">
+
+    <!-- ========================================== -->
+    <!-- SYMMETRICAL DECORATIVE SIDE PILLARS        -->
+    <!-- ========================================== -->
+
+    <!-- Left Pillar: The Village Roots (Only visible on screens > 1536px to ensure ample space) -->
+    <aside class="hidden 2xl:flex flex-col justify-center items-center fixed top-0 left-0 w-[calc(50vw-40rem)] h-screen z-0 pointer-events-none overflow-hidden">
+        <!-- Ambient Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-earth-light/20 to-transparent opacity-60"></div>
+        
+        <!-- Centered Content Container -->
+        <div class="relative z-10 flex flex-col items-center justify-center gap-10">
+            <div class="text-4xl opacity-20 floating-slow grayscale">🌱</div>
+            
+            <div class="text-earth-clay/20 font-serif tracking-[0.4em] text-4xl font-bold uppercase [writing-mode:vertical-rl] rotate-180 whitespace-nowrap">
+                Village Roots
+            </div>
+            
+            <div class="text-4xl opacity-20 floating-fast grayscale">🏫</div>
+        </div>
+
+        <!-- Vertical Line Accent flush with right edge -->
+        <div class="absolute right-0 top-1/4 bottom-1/4 w-px bg-gradient-to-b from-transparent via-earth-clay/30 to-transparent"></div>
+    </aside>
+
+    <!-- Right Pillar: The National Stages (Perfect mirror image of the left side) -->
+    <aside class="hidden 2xl:flex flex-col justify-center items-center fixed top-0 right-0 w-[calc(50vw-40rem)] h-screen z-0 pointer-events-none overflow-hidden">
+        <!-- Ambient Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-bl from-science-light/40 to-transparent opacity-60"></div>
+        
+        <!-- Centered Content Container -->
+        <div class="relative z-10 flex flex-col items-center justify-center gap-10">
+            <div class="text-4xl opacity-20 floating-slow grayscale">🔬</div>
+            
+            <div class="text-science-blue/20 font-serif tracking-[0.4em] text-4xl font-bold uppercase [writing-mode:vertical-rl] whitespace-nowrap">
+                National Stages
+            </div>
+            
+            <div class="text-4xl opacity-20 floating-fast grayscale">🏆</div>
+        </div>
+
+        <!-- Vertical Line Accent flush with left edge -->
+        <div class="absolute left-0 top-1/4 bottom-1/4 w-px bg-gradient-to-b from-transparent via-science-blue/30 to-transparent"></div>
+    </aside>
+    <!-- ========================================== -->
+
+    <!-- Navigation Island -->
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-2rem)] max-w-6xl bg-white/90 backdrop-blur-md shadow-2xl shadow-science-blue/5 rounded-2xl border border-gray-200/80 transition-all duration-300">
+        <div class="px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <span class="text-xl font-serif font-bold text-earth-clay">My 30-Year Journey</span>
+                </div>
+                <div class="hidden lg:flex space-x-6">
+                    <button onclick="scrollToSection('vision')" class="text-gray-600 hover:text-earth-clay text-sm font-medium transition">My Vision</button>
+                    <button onclick="scrollToSection('methodology')" class="text-gray-600 hover:text-earth-clay text-sm font-medium transition">The Pipeline</button>
+                    <button onclick="scrollToSection('shift')" class="text-gray-600 hover:text-earth-clay text-sm font-medium transition">3-Decade Shift</button>
+                    <button onclick="scrollToSection('impact')" class="text-gray-600 hover:text-earth-clay text-sm font-medium transition">Rising Impact</button>
+                    <button onclick="scrollToSection('holistic')" class="text-gray-600 hover:text-earth-clay text-sm font-medium transition">My Values</button>
+                    <button onclick="scrollToSection('gallery')" class="text-gray-600 hover:text-earth-clay text-sm font-medium transition">Student Gallery</button>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-600">
+                        ☰
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu dropdown inside the island -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-200/50 p-4 rounded-b-2xl">
+            <div class="flex flex-col space-y-3">
+                <button onclick="scrollToSection('vision')" class="text-left text-gray-600">My Vision</button>
+                <button onclick="scrollToSection('methodology')" class="text-left text-gray-600">The Pipeline</button>
+                <button onclick="scrollToSection('shift')" class="text-left text-gray-600">3-Decade Shift</button>
+                <button onclick="scrollToSection('impact')" class="text-left text-gray-600">Rising Impact</button>
+                <button onclick="scrollToSection('holistic')" class="text-left text-gray-600">My Values</button>
+                <button onclick="scrollToSection('gallery')" class="text-left text-gray-600">Student Gallery</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-b from-earth-light/30 to-neutral-bg pt-32 pb-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <!-- Presenter Profile Intro -->
+            <div class="flex flex-col items-center mb-8">
+                <!-- 
+                  TO ADD HER PICTURE: 
+                  Save her picture as "sujatha_profile.jpg" in the same folder as this HTML file.
+                  If the picture isn't there, it will smoothly fallback to a teacher avatar icon.
+                -->
+                <div class="inline-block rounded-2xl overflow-hidden border-4 border-white shadow-xl mb-6 bg-earth-light/40">
+                    <img src="sujatha_profile.jpg" alt="Smt. Sagi Sujatha" class="w-auto h-auto max-w-[200px] md:max-w-[280px] max-h-[350px] block" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'p-10 flex items-center justify-center\\'><span class=\\'text-5xl opacity-50\\'>👩‍🏫</span></div>';">
+                </div>
+                
+                <span class="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-widest text-earth-clay uppercase bg-earth-light/30 rounded-full border border-earth-clay/20">
+                    School Assistant (Biological Science) | Enkoor(M), Khammam(D), Telangana(S)
+                </span>
+                <h1 class="text-4xl md:text-6xl font-serif font-bold text-science-blue mb-4 leading-tight">
+                    Hello, I am <span class="text-earth-clay">Smt. Sagi Sujatha</span>
+                </h1>
+            </div>
+
+            <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 leading-relaxed mb-12">
+                From Village Classrooms to National Stages: A Thirty-Year Longitudinal Analysis of Rural Mentorship and Scientific Innovation. This is the story of my life's work: bridging the massive gap between our rural tribal sub-plans and national scientific innovation through my "Experiments Teacher" model.
+            </p>
+            
+            <!-- Key Highlight Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="text-3xl font-bold text-earth-clay mb-2">30</div>
+                    <div class="text-sm font-medium text-gray-500 uppercase">Years of Service</div>
+                    <p class="text-sm text-gray-600 mt-2">Dedicated mentorship to the children of rural Khammam district.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="text-3xl font-bold text-science-blue mb-2">51A(h)</div>
+                    <div class="text-sm font-medium text-gray-500 uppercase">My Core Mandate</div>
+                    <p class="text-sm text-gray-600 mt-2">Developing a true "Scientific Temper" in every child I teach.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="text-3xl font-bold text-award-gold mb-2">4</div>
+                    <div class="text-sm font-medium text-gray-500 uppercase">Major 1st Prizes</div>
+                    <p class="text-sm text-gray-600 mt-2">Won at State and South India levels, plus National representations.</p>
+                </div>
+            </div>
+            
+            <!-- Core Teaching Pillars Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left mt-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="text-2xl font-serif font-bold text-earth-clay mb-2">My Pedagogy</div>
+                    <div class="text-xs font-bold tracking-wider text-gray-400 uppercase mb-3">The "Experiments Teacher"</div>
+                    <p class="text-sm text-gray-600 leading-relaxed">I transform everyday village life and local materials into a living, breathing scientific laboratory for my students.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="text-2xl font-serif font-bold text-science-blue mb-2">Digital Inclusion</div>
+                    <div class="text-xs font-bold tracking-wider text-gray-400 uppercase mb-3">Bridging the Divide</div>
+                    <p class="text-sm text-gray-600 leading-relaxed">I leverage virtual labs like OLABS and PhET to bring modern technological tools directly into our rural classrooms.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="text-2xl font-serif font-bold text-award-gold mb-2">Holistic Growth</div>
+                    <div class="text-xs font-bold tracking-wider text-gray-400 uppercase mb-3">Values & Service</div>
+                    <p class="text-sm text-gray-600 leading-relaxed">I foster character, mutual cooperation, and deep social responsibility in my students through Scouts & Guides.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pb-24 relative z-10">
+
+        <!-- Section 1: The Vision & Challenge -->
+        <section id="vision" class="scroll-mt-32">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold text-science-blue mb-6">The Rural Reality & My Vision</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Teaching in rural Telangana presents unique challenges. When I began, we faced extreme geographic isolation, a severe lack of formal laboratory infrastructure, and deeply rooted social misconceptions. My vision was simple but ambitious: I wanted to transform our everyday village environment into a living scientific laboratory.
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        Aligned with the <strong>National Curriculum Framework for School Education (NCFSE) 2023</strong>, I shifted our classroom focus entirely away from rote learning and heavily toward logical reasoning and evidence-based thinking.
+                    </p>
+                    
+                    <!-- Interactive Toggle: Problem vs Solution -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                        <div class="flex border-b border-gray-200">
+                            <button id="btn-problem" class="flex-1 py-3 text-sm font-semibold bg-gray-50 text-gray-500 hover:bg-gray-100 transition" onclick="toggleVision('problem')">The Challenge</button>
+                            <button id="btn-solution" class="flex-1 py-3 text-sm font-semibold bg-earth-clay text-white shadow-inner" onclick="toggleVision('solution')">My Innovation</button>
+                        </div>
+                        <div class="p-6 h-48 relative">
+                            <div id="content-problem" class="hidden absolute inset-0 p-6 transition-opacity duration-300">
+                                <ul class="space-y-3">
+                                    <li class="flex items-start"><span class="text-red-500 mr-2">✖</span> <span class="text-gray-700">A severe lack of formal laboratory infrastructure.</span></li>
+                                    <li class="flex items-start"><span class="text-red-500 mr-2">✖</span> <span class="text-gray-700">Abstract textbook concepts that felt disconnected from my students' daily lives.</span></li>
+                                    <li class="flex items-start"><span class="text-red-500 mr-2">✖</span> <span class="text-gray-700">Geographic isolation from modern scientific hubs.</span></li>
+                                </ul>
+                            </div>
+                            <div id="content-solution" class="absolute inset-0 p-6 transition-opacity duration-300">
+                                <ul class="space-y-3">
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <span class="text-gray-700 font-medium">My "Experiments Teacher" Model:</span> Using low-cost, local materials to prove complex theories.</li>
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <span class="text-gray-700 font-medium">Digital Inclusion:</span> Leveraging OLABS and PhET virtual labs to level the playing field.</li>
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <span class="text-gray-700 font-medium">Sustained Mentorship:</span> A continuous 5-year guidance pipeline from 6th to 10th grade.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Visualization: Reach Distribution -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                    <h3 class="text-sm font-bold text-gray-500 uppercase mb-4 text-center">Expanding Our Horizons</h3>
+                    <!-- Chart Container 1 -->
+                    <div class="chart-container h-80">
+                        <canvas id="reachChart"></canvas>
+                    </div>
+                    <p class="text-xs text-center text-gray-400 mt-4">Relative representation of my students' participation levels over 30 years.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: The Methodology Pipeline (Interactive) -->
+        <section id="methodology" class="scroll-mt-32">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-serif font-bold text-science-blue mb-4">Building the "Rural-to-National" Pipeline</h2>
+                <p class="text-gray-600">
+                    Innovation isn't accidental; it must be engineered. This interactive diagram breaks down the systematic pedagogical approach I use to nurture raw potential from my village classrooms into national-level competency. Click through my steps below.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step Selector -->
+                <div class="space-y-4">
+                    <div class="method-card active bg-white p-4 rounded-lg border border-gray-200" onclick="showMethod(0, this)">
+                        <h4 class="font-bold text-earth-clay">Step 1: Identification</h4>
+                        <p class="text-sm text-gray-500">Spotting the spark in 6th Grade.</p>
+                    </div>
+                    <div class="method-card bg-white p-4 rounded-lg border border-gray-200" onclick="showMethod(1, this)">
+                        <h4 class="font-bold text-science-blue">Step 2: The "Experiments Teacher"</h4>
+                        <p class="text-sm text-gray-500">Bridging gaps with low-cost labs.</p>
+                    </div>
+                    <div class="method-card bg-white p-4 rounded-lg border border-gray-200" onclick="showMethod(2, this)">
+                        <h4 class="font-bold text-science-blue">Step 3: Digital Inclusion</h4>
+                        <p class="text-sm text-gray-500">OLABS & PhET Virtual Simulations.</p>
+                    </div>
+                    <div class="method-card bg-white p-4 rounded-lg border border-gray-200" onclick="showMethod(3, this)">
+                        <h4 class="font-bold text-award-gold">Step 4: National Platform</h4>
+                        <p class="text-sm text-gray-500">Competing at Delhi, Raipur & Puducherry.</p>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content Area -->
+                <div class="md:col-span-2 bg-white rounded-xl shadow-lg border border-gray-100 p-8 flex flex-col justify-center relative overflow-hidden min-h-[300px]">
+                    <div id="method-bg-icon" class="absolute right-0 bottom-0 opacity-5 text-9xl pointer-events-none">🌱</div>
+                    
+                    <h3 id="method-title" class="text-2xl font-serif font-bold text-gray-800 mb-4">Identification & Mentorship</h3>
+                    <div id="method-content" class="text-lg text-gray-600 space-y-4">
+                        <p>Our journey begins early. I identify my students not by their test grades, but by their raw curiosity.</p>
+                        <p><strong>My Strategy:</strong> I track and mentor them longitudinally from Grade 6 all the way to 10. This allows for the gradual, deep development of their "Scientific Temper." It is never about rushing a single project; it is a 5-year cultivation of a mindset.</p>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-100 flex justify-between items-center">
+                        <span id="method-stat" class="text-sm font-semibold text-earth-clay">My Focus: Curiosity & Observation</span>
+                        <div id="method-indicators" class="flex space-x-2">
+                            <!-- JS will populate dots -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The 30-Year Paradigm Shift (3-Decade Evolution) -->
+        <section id="shift" class="scroll-mt-32 bg-science-light/30 rounded-3xl p-8 md:p-12 border border-science-blue/10">
+            <div class="text-center max-w-4xl mx-auto mb-16">
+                <span class="text-earth-clay font-bold tracking-widest uppercase text-sm mb-2 block">Opening Horizons</span>
+                <h2 class="text-3xl font-serif font-bold text-science-blue mb-4">My 3-Decade Evolution of Options</h2>
+                <p class="text-gray-700">
+                    Over thirty years, the intersection of technological advancement and my adaptive mentorship has fundamentally rewritten what is possible for a child in rural Khammam. Here is how our reality changed.
+                </p>
+            </div>
+
+            <!-- 3-Column Decade Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+                
+                <!-- Background connecting line for desktop -->
+                <div class="hidden lg:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-gray-300 via-earth-clay to-award-gold transform -translate-y-1/2 z-0 opacity-30"></div>
+
+                <!-- Decade 1: 1995-2005 -->
+                <div class="shift-card bg-white rounded-2xl shadow-md border-t-8 border-gray-400 p-6 relative z-10 flex flex-col h-full">
+                    <div class="text-4xl mb-4 text-center">🏚️</div>
+                    <h3 class="text-xl font-bold text-center text-gray-800 mb-1">The Scarcity Era</h3>
+                    <p class="text-sm text-center text-gray-500 font-bold mb-6">1995 – 2005</p>
+                    
+                    <div class="space-y-4 flex-grow text-sm text-gray-600">
+                        <div>
+                            <strong class="text-gray-800 block mb-1">Technologies & Resources:</strong>
+                            <p>Severe geographic isolation. We had a total lack of formal laboratory infrastructure or digital tools. We relied entirely on textbooks and chalkboards.</p>
+                        </div>
+                        <div>
+                            <strong class="text-gray-800 block mb-1">My Pedagogy:</strong>
+                            <p>Science felt abstract and disconnected from my students' daily lives. Learning was heavily reliant on rote memorization just to pass exams.</p>
+                        </div>
+                    </div>
+
+                    <!-- The Shift in Options -->
+                    <div class="mt-6 pt-4 border-t border-gray-100 bg-gray-50 rounded-lg p-4">
+                        <div class="text-xs font-bold uppercase text-gray-500 mb-2">Horizons for Children</div>
+                        <p class="text-sm text-gray-700"><strong>Closed loop:</strong> Aspirations were largely restricted to passing basic local exams. National platforms felt like an impossible, distant reality for us.</p>
+                    </div>
+                </div>
+
+                <!-- Decade 2: 2005-2015 -->
+                <div class="shift-card bg-white rounded-2xl shadow-md border-t-8 border-earth-clay p-6 relative z-10 flex flex-col h-full transform lg:-translate-y-4">
+                    <div class="text-4xl mb-4 text-center">🧪</div>
+                    <h3 class="text-xl font-bold text-center text-gray-800 mb-1">The Innovation Era</h3>
+                    <p class="text-sm text-center text-earth-clay font-bold mb-6">2005 – 2015</p>
+                    
+                    <div class="space-y-4 flex-grow text-sm text-gray-600">
+                        <div>
+                            <strong class="text-gray-800 block mb-1">Technologies & Resources:</strong>
+                            <p>I introduced my "Experiments Teacher" model. We started using low-cost, locally available village materials to bypass the need for expensive lab equipment.</p>
+                        </div>
+                        <div>
+                            <strong class="text-gray-800 block mb-1">My Pedagogy:</strong>
+                            <p>I led a shift toward hands-on learning and practical application. Abstract concepts were suddenly proven using everyday items my students recognized.</p>
+                        </div>
+                    </div>
+
+                    <!-- The Shift in Options -->
+                    <div class="mt-6 pt-4 border-t border-earth-light bg-earth-light/10 rounded-lg p-4">
+                        <div class="text-xs font-bold uppercase text-earth-clay mb-2">Horizons for Children</div>
+                        <p class="text-sm text-gray-800"><strong>Breaking the district barrier:</strong> My students realized their ideas had value. They began competing and winning at State Levels (e.g., INSPIRE Awards), gaining confidence to look beyond our mandal.</p>
+                    </div>
+                </div>
+
+                <!-- Decade 3: 2015-2025 -->
+                <div class="shift-card bg-white rounded-2xl shadow-md border-t-8 border-award-gold p-6 relative z-10 flex flex-col h-full transform lg:-translate-y-8">
+                    <div class="text-4xl mb-4 text-center">💻</div>
+                    <h3 class="text-xl font-bold text-center text-gray-800 mb-1">The Digital Era</h3>
+                    <p class="text-sm text-center text-award-gold font-bold mb-6">2015 – 2025</p>
+                    
+                    <div class="space-y-4 flex-grow text-sm text-gray-600">
+                        <div>
+                            <strong class="text-gray-800 block mb-1">Technologies & Resources:</strong>
+                            <p>Aggressive Digital Inclusion. I ensured access to virtual labs like OLABS and PhET simulations, leveling the technological playing field with elite urban schools.</p>
+                        </div>
+                        <div>
+                            <strong class="text-gray-800 block mb-1">My Pedagogy:</strong>
+                            <p>Advanced logical reasoning, mathematical modeling, and computational thinking. We moved from simple observation to creating actual "Scientific Solutions."</p>
+                        </div>
+                    </div>
+
+                    <!-- The Shift in Options -->
+                    <div class="mt-6 pt-4 border-t border-award-gold/30 bg-award-gold/10 rounded-lg p-4">
+                        <div class="text-xs font-bold uppercase text-award-gold mb-2">Horizons for Children</div>
+                        <p class="text-sm text-gray-800"><strong>The National Stage:</strong> Options are now limitless. My students transcend socio-economic barriers to consistently represent Telangana at National Fairs and win South India levels.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 4: Longitudinal Impact (Interactive Journey) -->
+        <section id="impact" class="scroll-mt-32 bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gray-200">
+            <div class="max-w-2xl mb-12">
+                <h2 class="text-3xl font-serif font-bold text-science-blue mb-4">30 Years of Rising Impact</h2>
+                <p class="text-gray-600">
+                    Explore the interactive timeline below to follow our journey from local participation to dominating national stages, securing <strong>4 major 1st prizes</strong> along the way. Click on the milestones to uncover the defining moments of my mentorship.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 lg:gap-16 relative">
+                
+                <!-- Left: Vertical Timeline Path -->
+                <div class="md:w-1/3 relative">
+                    <!-- The vertical line -->
+                    <div class="absolute left-[11px] top-4 bottom-4 w-1 bg-gray-200 rounded-full z-0"></div>
+                    
+                    <!-- Nodes container -->
+                    <div id="timeline-nodes-container" class="space-y-8 relative z-10">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Right: Detail Presentation Card -->
+                <div class="md:w-2/3">
+                    <div class="sticky top-24"> <!-- Makes the card stick while scrolling long timelines -->
+                        <div id="milestone-detail" class="bg-science-blue text-white rounded-2xl p-8 md:p-10 shadow-xl transform fade-content min-h-[350px] flex flex-col justify-center relative overflow-hidden border-t-4 border-award-gold">
+                            
+                            <!-- Decorative Icon Background -->
+                            <div id="milestone-bg-icon" class="absolute -right-6 -bottom-10 text-9xl opacity-10 pointer-events-none">🏆</div>
+                            
+                            <div class="relative z-10">
+                                <span id="milestone-year" class="text-award-gold font-bold tracking-widest uppercase text-sm mb-3 block">2025</span>
+                                <h3 id="milestone-title-display" class="text-3xl md:text-4xl font-serif font-bold mb-4 leading-tight">Southern India Science Fair</h3>
+                                <p id="milestone-desc" class="text-science-light text-lg leading-relaxed mb-8">We secured 1st Prize in the Group Category for Mathematical Modeling and Computational Thinking, receiving the award from the Director of School Education in Puducherry.</p>
+                                
+                                <div class="flex items-center space-x-4">
+                                    <div class="inline-block bg-white/10 px-4 py-2 rounded-lg border border-white/20">
+                                        <span class="text-xs uppercase text-gray-300 block mb-1">Level of Impact</span>
+                                        <span id="milestone-level" class="text-sm font-semibold text-white">South India 1st Prize</span>
+                                    </div>
+                                    <div class="inline-block bg-white/10 px-4 py-2 rounded-lg border border-white/20">
+                                        <span class="text-xs uppercase text-gray-300 block mb-1">Location</span>
+                                        <span id="milestone-location" class="text-sm font-semibold text-white">Puducherry</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 5: Holistic Development & Values -->
+        <section id="holistic" class="scroll-mt-32">
+             <div class="bg-earth-light/20 rounded-2xl p-8 md:p-12">
+                <h2 class="text-3xl font-serif font-bold text-earth-clay mb-6">Beyond Science: My Values</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                         <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            Science does not exist in a vacuum. My approach integrates rigorous academic inquiry with deep social responsibility through my work in <strong>Scouts & Guides</strong>.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="bg-earth-clay text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-3 mt-1 shrink-0">1</span>
+                                <span class="text-gray-700"><strong>Social Service:</strong> Guiding students to provide relief during floods and local festivals (Dasara).</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-earth-clay text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-3 mt-1 shrink-0">2</span>
+                                <span class="text-gray-700"><strong>Values:</strong> Collaborating with the Vivekananda Trust to teach mutual cooperation and character.</span>
+                            </li>
+                             <li class="flex items-start">
+                                <span class="bg-earth-clay text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-3 mt-1 shrink-0">3</span>
+                                <span class="text-gray-700"><strong>Leadership:</strong> Serving as the Scouts School Commissioner to cultivate a lifelong service motto in my children.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-earth-clay text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-3 mt-1 shrink-0">4</span>
+                                <span class="text-gray-700"><strong>Breaking Superstitions:</strong> Empowering my students to actively challenge local stereotypes and demonstrate how unscientific superstitions negatively affect our communities.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 shadow-sm flex items-center justify-center text-center">
+                        <div>
+                            <p class="text-xl font-serif italic text-gray-600 mb-4">"I have learned that mentorship does not just teach science; it transforms destinies."</p>
+                            <div class="text-sm font-bold text-science-blue">- Smt. Sagi Sujatha</div>
+                            <div class="text-xs text-gray-500">My Final Conclusion</div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- Section 6: Student Collage Gallery -->
+        <section id="gallery" class="scroll-mt-32 pt-12 border-t border-gray-200">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-3xl font-serif font-bold text-science-blue mb-4">My Legacy of Mentorship</h2>
+                <p class="text-gray-600 mb-6">
+                    Over the past 30 years, hundreds of my rural students have transformed their curiosity into national-level scientific achievements. This space is dedicated to them—showcasing their milestones, their projects, and the moments they bravely broke stereotypes and fought against local superstitions.
+                </p>
+                
+                <!-- Instructions Panel -->
+                <div class="bg-earth-light/20 p-5 rounded-lg text-sm text-gray-700 mb-10 border border-earth-light/50 shadow-sm text-left max-w-2xl mx-auto">
+                    <strong class="text-earth-clay block mb-2 text-base">How to display your photos here permanently:</strong>
+                    <ol class="list-decimal list-inside space-y-1">
+                        <li>Rename your student picture files to numbers: <b>1.jpg, 2.jpg, 3.jpg</b> (up to <b>72.jpg</b>).</li>
+                        <li>Upload those numbered `.jpg` files directly to your GitHub repository alongside this HTML file.</li>
+                        <li>This website will automatically find them and display them in a beautiful layout below (preserving their original ratios)!</li>
+                    </ol>
+                    <p class="mt-3 text-xs text-gray-500 italic">*If a picture is missing, a placeholder tile will automatically show up instead.</p>
+                </div>
+            </div>
+
+            <!-- The 72-Image Auto-Loading Masonry Layout -->
+            <!-- Using fewer CSS columns to ensure images display significantly larger. -->
+            <div id="student-gallery-grid" class="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-3 sm:gap-4">
+                <!-- JavaScript will auto-load images 1.jpg to 72.jpg here -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-science-blue text-white py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <span class="font-serif font-bold text-xl">Smt. Sagi Sujatha</span>
+                <p class="text-science-light text-sm mt-2">School Assistant (Bio-Science) | Enkoor(M), Khammam(D), Telangana(S)</p>
+            </div>
+            <div class="text-science-light text-sm text-center md:text-right">
+                <p>Based on my paper: "From Village Classrooms to National Stages"</p>
+                <p class="opacity-75 mt-1">&copy; 2026 Interactive Report Generation</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Data Definitions ---
+
+        const methodologySteps = [
+            {
+                title: "Identification & Mentorship",
+                content: "Our journey begins early. I identify my students not by their test grades, but by their raw curiosity. <br><br><strong>My Key Action:</strong> 5-year longitudinal tracking and mentorship from Grade 6 to 10.",
+                stat: "My Focus: Curiosity",
+                icon: "🌱",
+                color: "text-earth-clay"
+            },
+            {
+                title: "The 'Experiments Teacher' Model",
+                content: "Addressing our severe lack of infrastructure by using low-cost, locally available materials. If the lab doesn't exist, I teach them to build it from our environment. <br><br><strong>My Key Action:</strong> Transforming daily village life into a scientific laboratory.",
+                stat: "My Focus: Improvisation",
+                icon: "🧪",
+                color: "text-science-blue"
+            },
+            {
+                title: "Digital Inclusion (OLABS/PhET)",
+                content: "To compete nationally, my rural students must speak the language of modern science. I integrate OLABS and PhET virtual labs to bridge the digital divide. <br><br><strong>My Key Action:</strong> Hybrid learning blending physical experiments with digital simulations.",
+                stat: "My Focus: Digital Literacy",
+                icon: "💻",
+                color: "text-science-blue"
+            },
+            {
+                title: "National Competitiveness",
+                content: "The result of our pipeline. My students are now equipped with logical reasoning and evidence-based thinking, ready to present 'Scientific Solutions for Challenges in Life'.<br><br><strong>Our Outcome:</strong> Wins at Southern India Science Fair (2025), Delhi, and Raipur.",
+                stat: "My Focus: Excellence",
+                icon: "🏆",
+                color: "text-award-gold"
+            }
+        ];
+
+        // --- Interactive Journey Data (Replacing Chart) ---
+        const journeyMilestones = [
+            {
+                year: "Early Career",
+                title: "Building the Foundation",
+                location: "Village & Mandal Level",
+                level: "Foundational Mentorship",
+                desc: "I established my 'Experiments Teacher' model in our rural classrooms, shifting our focus away from rote memorization to practical, evidence-based thinking.",
+                icon: "🌱",
+                isMajor: false
+            },
+            {
+                year: "2015",
+                title: "First Major State Win",
+                location: "Nizamabad",
+                level: "State Level (INSPIRE)",
+                desc: "My students and I received the 1st prize in the State level science Fair (INSPIRE) from Smt. Yogitharana, Collector of Nizamabad. A major breakthrough for our rural representation.",
+                icon: "🏅",
+                isMajor: true
+            },
+            {
+                year: "2018",
+                title: "State Level Excellence",
+                location: "Siddipet",
+                level: "State Level Win",
+                desc: "We secured the 1st Prize in the State Level Science Fair. Receiving the award from Smt. B. Seshukumari, Director SCERT, proved our consistent excellence.",
+                icon: "🎖️",
+                isMajor: true
+            },
+            {
+                year: "2020 - 2023",
+                title: "The National Stage",
+                location: "Delhi & Raipur (Chhattisgarh)",
+                level: "National Science Fairs",
+                desc: "My students transcended state boundaries to represent Telangana at National Science Fairs in Delhi and Raipur, presenting 'Scientific Solutions for Challenges in Life'.",
+                icon: "🇮🇳",
+                isMajor: true
+            },
+            {
+                year: "2025",
+                title: "Southern India Science Fair",
+                location: "Puducherry",
+                level: "South India 1st Prize",
+                desc: "The culmination of our pipeline: 1st prize in the Group Category for 'Mathematical Modeling and Computational Thinking'. Received from the Director of School Education, Puducherry.",
+                icon: "🏆",
+                isMajor: true
+            }
+        ];
+
+        // --- Interaction Logic: Journey Timeline ---
+        function renderTimeline() {
+            const container = document.getElementById('timeline-nodes-container');
+            
+            journeyMilestones.forEach((milestone, index) => {
+                const nodeDiv = document.createElement('div');
+                nodeDiv.className = 'flex items-center cursor-pointer group';
+                nodeDiv.onclick = () => updateJourneyCard(index);
+
+                const dotColor = milestone.isMajor ? 'bg-science-blue' : 'bg-earth-clay';
+                const ringColor = milestone.isMajor ? 'ring-science-light' : 'ring-earth-light';
+                
+                nodeDiv.innerHTML = `
+                    <div id="dot-${index}" class="timeline-node w-6 h-6 rounded-full border-4 border-white shadow-sm z-10 ${dotColor} group-hover:ring-4 ${ringColor}"></div>
+                    <div class="ml-4 flex-1">
+                        <span id="text-year-${index}" class="timeline-text text-sm font-bold text-gray-400 group-hover:text-gray-700 block">${milestone.year}</span>
+                        <span id="text-title-${index}" class="timeline-text text-md font-serif text-gray-700 group-hover:text-earth-clay block">${milestone.title}</span>
+                    </div>
+                `;
+                container.appendChild(nodeDiv);
+            });
+            
+            updateJourneyCard(journeyMilestones.length - 1);
+        }
+
+        function updateJourneyCard(index) {
+            const data = journeyMilestones[index];
+            const card = document.getElementById('milestone-detail');
+            
+            journeyMilestones.forEach((_, i) => {
+                document.getElementById(`dot-${i}`).classList.remove('active');
+                document.getElementById(`text-year-${i}`).classList.remove('active');
+                document.getElementById(`text-title-${i}`).classList.remove('active');
+            });
+            
+            document.getElementById(`dot-${index}`).classList.add('active');
+            document.getElementById(`text-year-${index}`).classList.add('active');
+            document.getElementById(`text-title-${index}`).classList.add('active');
+
+            card.classList.add('fade-out');
+            
+            setTimeout(() => {
+                document.getElementById('milestone-year').textContent = data.year;
+                document.getElementById('milestone-title-display').textContent = data.title;
+                document.getElementById('milestone-desc').textContent = data.desc;
+                document.getElementById('milestone-level').textContent = data.level;
+                document.getElementById('milestone-location').textContent = data.location;
+                document.getElementById('milestone-bg-icon').textContent = data.icon;
+                
+                card.classList.remove('fade-out');
+            }, 400); 
+        }
+
+        // --- Interaction Logic: Vision Toggle ---
+        function toggleVision(view) {
+            const btnProblem = document.getElementById('btn-problem');
+            const btnSolution = document.getElementById('btn-solution');
+            const contentProblem = document.getElementById('content-problem');
+            const contentSolution = document.getElementById('content-solution');
+
+            if (view === 'problem') {
+                btnProblem.classList.remove('bg-gray-50', 'text-gray-500');
+                btnProblem.classList.add('bg-red-500', 'text-white', 'shadow-inner');
+                
+                btnSolution.classList.add('bg-gray-50', 'text-gray-500');
+                btnSolution.classList.remove('bg-earth-clay', 'text-white', 'shadow-inner');
+
+                contentProblem.classList.remove('hidden');
+                contentSolution.classList.add('hidden');
+            } else {
+                btnSolution.classList.remove('bg-gray-50', 'text-gray-500');
+                btnSolution.classList.add('bg-earth-clay', 'text-white', 'shadow-inner');
+                
+                btnProblem.classList.add('bg-gray-50', 'text-gray-500');
+                btnProblem.classList.remove('bg-red-500', 'text-white', 'shadow-inner');
+
+                contentSolution.classList.remove('hidden');
+                contentProblem.classList.add('hidden');
+            }
+        }
+
+        // --- Interaction Logic: Methodology Steps ---
+        function showMethod(index, element) {
+            document.querySelectorAll('.method-card').forEach(card => {
+                card.classList.remove('active', 'border-l-4', 'border-earth-clay');
+                card.classList.add('border-gray-200');
+            });
+            element.classList.add('active');
+            
+            const step = methodologySteps[index];
+            const titleEl = document.getElementById('method-title');
+            const contentEl = document.getElementById('method-content');
+            const statEl = document.getElementById('method-stat');
+            const iconEl = document.getElementById('method-bg-icon');
+
+            titleEl.style.opacity = 0;
+            contentEl.style.opacity = 0;
+            
+            setTimeout(() => {
+                titleEl.textContent = step.title;
+                titleEl.className = `text-2xl font-serif font-bold mb-4 ${step.color}`;
+                contentEl.innerHTML = step.content;
+                statEl.textContent = step.stat;
+                iconEl.textContent = step.icon;
+                
+                titleEl.style.opacity = 1;
+                contentEl.style.opacity = 1;
+            }, 200);
+        }
+
+        // --- Generate Auto-Loading Gallery (Masonry Style) ---
+        function generateGallery() {
+            const galleryGrid = document.getElementById('student-gallery-grid');
+            if (!galleryGrid) return;
+            
+            galleryGrid.innerHTML = ''; // Clear existing
+            
+            // Generate masonry items that preserve natural image ratios
+            for (let i = 1; i <= 72; i++) {
+                const div = document.createElement('div');
+                // Use break-inside-avoid to prevent columns from cutting images in half, mb-2/mb-3 for vertical spacing
+                div.className = `break-inside-avoid mb-3 sm:mb-4 rounded-xl shadow-sm overflow-hidden relative group border border-gray-200 bg-gray-50 cursor-pointer`;
+                
+                // Note: using h-auto instead of h-full allows the image to define its own natural height!
+                // If the image is missing, the onerror injects a perfect square placeholder so the layout doesn't collapse.
+                div.innerHTML = `
+                    <img src="${i}.jpg" 
+                         alt="Mentored Student ${i}" 
+                         class="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                         onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'aspect-square w-full flex items-center justify-center\\'><span class=\\'text-4xl sm:text-5xl opacity-20\\'>👤</span></div><div class=\\'absolute inset-0 bg-science-blue/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-2 md:p-3 text-center\\'><span class=\\'text-xs sm:text-sm font-bold\\'>Add Photo</span><span class=\\'text-[10px] sm:text-xs opacity-75 mt-1\\'>Name it ${i}.jpg</span></div>';"
+                    />
+                `;
+
+                galleryGrid.appendChild(div);
+            }
+        }
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', function() {
+            generateGallery();
+            renderTimeline();
+
+            const ctxReach = document.getElementById('reachChart').getContext('2d');
+            new Chart(ctxReach, {
+                type: 'doughnut',
+                data: {
+                    labels: ['District Level', 'State Level (Wins)', 'South India / National'],
+                    datasets: [{
+                        data: [60, 30, 10], 
+                        backgroundColor: ['#E6D2C9', '#A0522D', '#2C3E50'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+
+            toggleVision('solution');
+        });
+
+        // --- Functional Navigation ---
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('mobile-menu').classList.add('hidden');
+            }
+        }
+
+    </script>
+</body>
+</html>
